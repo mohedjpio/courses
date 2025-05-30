@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5SKILLSBROS - BASE5 Courses 🚀</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #db2777);
+            color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+        .course-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card:hover, .course-card:active {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        .course-card svg {
+            transition: transform 0.3s ease;
+        }
+        .course-card:hover svg, .course-card:active svg {
+            transform: scale(1.2) rotate(360deg);
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 6px;
+            background: linear-gradient(to bottom, #f472b6, #22d3ee);
+            border-radius: 3px;
+        }
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .timeline-item::before {
+            content: '🔥';
+            position: absolute;
+            left: -35px;
+            top: 16px;
+            font-size: 24px;
+        }
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 12px 24px;
+            touch-action: manipulation;
+        }
+        .btn:hover::after, .btn:active::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            opacity: 0.5;
+        }
+        @media (max-width: 640px) {
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item {
+                padding: 12px;
+            }
+            .timeline-item::before {
+                left: -25px;
+                font-size: 20px;
+            }
+            .course-card {
+                padding: 12px;
+            }
+            .course-card svg {
+                width: 40px;
+                height: 40px;
+            }
+            .text-5xl {
+                font-size: 2rem;
+            }
+            .text-4xl {
+                font-size: 1.8rem;
+            }
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            .text-xl {
+                font-size: 1rem;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-indigo-900 to-pink-600 text-white p-4 sticky top-0 z-50 shadow-xl">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">5SKILLSBROS 🎮</h1>
+            <ul class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 text-base sm:text-lg">
+                <li><a href="#home" class="hover:text-cyan-300 nav-link transition duration-300">Home</a></li>
+                <li><a href="#courses" class="hover:text-cyan-300 nav-link transition duration-300">BASE5 Courses</a></li>
+                <li><a href="#about" class="hover:text-cyan-300 nav-link transition duration-300">About 5SKILLSBROS</a></li>
+                <li><a href="#testimonials" class="hover:text-cyan-300 nav-link transition duration-300">Testimonials</a></li>
+                <li><a href="#contact" class="hover:text-cyan-300 nav-link transition duration-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="content" class="container mx-auto p-4 sm:p-6">
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-pink-500">
+            <div class="text-center px-4">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 font-['Roboto_Mono']">5SKILLSBROS Present: BASE5! 🚀</h2>
+                <p class="text-lg sm:text-xl md:text-2xl mb-6 max-w-3xl mx-auto">Yo, ready to level up with the 5SKILLSBROS crew? 😎 Master C++, Python, Embedded Systems, Web Dev, and Networking in our BASE5 course – coding with epic vibes! 🎉</p>
+                <a href="#courses" class="btn bg-cyan-400 text-indigo-900 rounded-full font-semibold hover:bg-cyan-300 transition duration-300 nav-link" onclick="showSection('courses')">Explore BASE5 Now! 🎮</a>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="py-12">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: The Ultimate Skill Bash! 🦸‍♂️</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="course-card p-4 sm:p-6 cursor-pointer" data-course="cpp" onclick="showSection('cpp-roadmap')">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">C++: Code Like a Beast! 🦁</h3>
+                    <p>Unleash epic apps with C++’s raw power! 💪</p>
+                </div>
+                <div class="course-card p-4 sm:p-6 cursor-pointer" data-course="python" onclick="showSection('python-roadmap')">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m0 4v2m0 4v2m0 4v2m6-18v2m0 4v2m0 4v2m0 4v2"></path></svg>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Python: Slay with Simplicity! 🐍</h3>
+                    <p>Code like a ninja and automate the world! 🥷</p>
+                </div>
+                <div class="course-card p-4 sm:p-6 cursor-pointer" data-course="embedded" onclick="showSection('embedded-roadmap')">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Embedded: Gadget Guru! 🤖</h3>
+                    <p>Build smart devices that make jaws drop! 😮</p>
+                </div>
+                <div class="course-card p-4 sm:p-6 cursor-pointer" data-course="web" onclick="showSection('web-roadmap')">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Web Dev: Internet Icon! 🌐</h3>
+                    <p>Create websites that scream “Wow!” 😍</p>
+                </div>
+                <div class="course-card p-4 sm:p-6 cursor-pointer" data-course="network" onclick="showSection('network-roadmap')">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5v14"></path></svg>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Networking: Rule the Web! 📡</h3>
+                    <p>Master the internet’s secret sauce! 🧙‍♂️</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">Meet the 5SKILLSBROS Crew! 😺</h2>
+            <p class="text-base sm:text-lg md:text-xl text-center max-w-3xl mx-auto">We’re the 5SKILLSBROS, your hype squad for tech domination! 🚀 Our BASE5 course turns you into a coding wizard, gadget geek, or network ninja. Join the party and let’s make learning lit! 🎉</p>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">Our BASE5 Rockstars Speak! 🌟</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="course-card p-4 sm:p-6">
+                    <p class="italic text-sm sm:text-base">“BASE5’s Python course turned me into a coding ninja! 🐍 Now my bots are cooler than me!”</p>
+                    <p class="mt-4 font-semibold">– Ahmed, Code Slayer</p>
+                </div>
+                <div class="course-card p-4 sm:p-6">
+                    <p class="italic text-sm sm:text-base">“Embedded Systems with 5SKILLSBROS was 🔥! My robot dances better than my TikTok moves!”</p>
+                    <p class="mt-4 font-semibold">– Sarah, Gadget Queen</p>
+                </div>
+                <div class="course-card p-4 sm:p-6">
+                    <p class="italic text-sm sm:text-base">“Networking made me the internet’s BFF! Thanks, 5SKILLSBROS! 😎”</p>
+                    <p class="mt-4 font-semibold">– Omar, Network Ninja</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">Yo, Hit Up 5SKILLSBROS! 📣</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-base sm:text-lg md:text-xl mb-6">Got a question or just wanna vibe with the 5SKILLSBROS? Send us a message and we’ll reply faster than a Python script! 😜</p>
+                <div class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-4 sm:p-6 rounded-lg">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 rounded-lg bg-white bg-opacity-30 text-white placeholder-gray-300 text-sm sm:text-base">
+                    <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-lg bg-white bg-opacity-30 text-white placeholder-gray-300 text-sm sm:text-base">
+                    <textarea placeholder="Your Message" class="w-full p-3 mb-4 rounded-lg bg-white bg-opacity-30 text-white placeholder-gray-300 text-sm sm:text-base" rows="5"></textarea>
+                    <button class="btn bg-cyan-400 text-indigo-900 rounded-full font-semibold hover:bg-cyan-300 transition duration-300">Send the Vibe! 🚀</button>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-cyan-300 hover:text-cyan-100 text-sm sm:text-base">📱 WhatsApp</a>
+                    <a href="#" class="text-cyan-300 hover:text-cyan-100 text-sm sm:text-base">📧 Email</a>
+                    <a href="#" class="text-cyan-300 hover:text-cyan-100 text-sm sm:text-base">🐦 X</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Roadmap Sections -->
+        <section id="cpp-roadmap" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: C++ Code Quest 🚀</h2>
+            <div class="timeline relative pl-8 sm:pl-12">
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 1: C++ Blast-Off! 💥</h3>
+                    <p>Learn C++ basics and code your first epic program!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 2: Data Type Party 🎉</h3>
+                    <p>Juggle variables and data types like a coding circus star!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 3: Flow Control Frenzy 🌀</h3>
+                    <p>Master if, else, and loops to make your code sing!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 4: Function Fiesta 🎈</h3>
+                    <p>Build reusable functions to keep your code sleek!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 5: OOP Extravaganza 🦸‍♂️</h3>
+                    <p>Dive into classes and objects for superhero-level coding!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="python-roadmap" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: Python Power-Up 🐍</h2>
+            <div class="timeline relative pl-8 sm:pl-12">
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 1: Python Kickoff 🎉</h3>
+                    <p>Meet Python and code your first “Hello, World!” masterpiece!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 2: Data Type Disco 💃</h3>
+                    <p>Play with integers, floats, and strings like a DJ!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 3: Math & String Magic ✨</h3>
+                    <p>Crunch numbers and slice strings with wizardry!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 4: Loops & Choices 🛤️</h3>
+                    <p>Navigate code with if statements and loops like a pro!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 5: Function Frenzy 😜</h3>
+                    <p>Build functions to make your code pop!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 6: Lists & Sets Show 🎭</h3>
+                    <p>Master lists, tuples, and sets for data domination!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 7: Dictionaries & Error Escapades 🛡️</h3>
+                    <p>Organize data and squash bugs with try-except!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 8: Libraries & Project Palooza 🎆</h3>
+                    <p>Use cool libraries and build a project that slays!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="embedded-roadmap" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: Embedded Systems Epic 🤖</h2>
+            <div class="timeline relative pl-8 sm:pl-12">
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 1: Embedded Intro 🚀</h3>
+                    <p>Discover smart gadgets like robots and car navigation! 😮</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 2: IoT Adventure 🌐</h3>
+                    <p>Play with sensors, controllers, and cloud magic!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 3: Microcontroller Mania 🛠️</h3>
+                    <p>Meet Arduino and ESP32 – your new tech BFFs!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 4: Code Setup Party ⚙️</h3>
+                    <p>Set up Arduino IDE and launch your first code!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 5: Sensors & Actuators Quest </h3>
+                    <p>Control sensors and motors like a tech wizard!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 6: Connectivity Craze 📡</h3>
+                    <p>Connect with Wi-Fi and Bluetooth for epic projects!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Phase 7: Project Blowout 🎉</h3>
+                    <p>Build a temperature monitor or a dancing robot!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="web-roadmap" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: Web Dev Wizardry 🌐</h2>
+            <div class="timeline relative pl-8 sm:pl-12">
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 1: Web Dev Blast-Off 🚀</h3>
+                    <p>Kickstart with HTML and build your first page!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 2: CSS Style Party 🎨</h3>
+                    <p>Make your pages pop with awesome CSS!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 3: JavaScript Jive 🕺</h3>
+                    <p>Add interactivity with JavaScript magic!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 4: Responsive Rave 📱</h3>
+                    <p>Create mobile-friendly sites that slay!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Week 5: Framework Fiesta 🎉</h3>
+                    <p>Dive into vanilla web apps!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="network-roadmap" class="py-12 hidden">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 font-['Roboto_Mono']">BASE5: Networking Ninja Quest 📡</h2>
+            <div class="timeline relative pl-8 sm:pl-12">
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 1: Networking 101 🛜</h3>
+                    <p>Learn why networks are the internet’s VIPs! 😎</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 2: Network Types Party 🎭</h3>
+                    <p>Explore LAN, WAN, and cool topologies!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 3: Architecture Adventure 🏰</h3>
+                    <p>Peer-to-Peer or Client/Server? You’re the boss!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 4: Transmission Tunes 🎶</h3>
+                    <p>Wired or wireless? Pick your vibe!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 5: Device Dance 🛠️</h3>
+                    <p>Meet routers, switches, and firewalls!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 6: OSI Model Magic 🪄</h3>
+                    <p>Climb the seven layers of network awesomeness!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 7: Transmission Modes 🎙️</h3>
+                    <p>Simplex, Half Duplex, or Full Duplex? Choose your style!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 8: Protocol Party 🎉</h3>
+                    <p>Master TCP/IP and HTTP like a pro!</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg sm:text-xl font-semibold">Module 9: Addressing Antics 🏷️</h3>
+                    <p>Crack MAC and IP addresses like a detective!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white p-4 text-center">
+        <p class="text-sm sm:text-base">© 2025 5SKILLSBROS. All rights reserved. Powering BASE5 with epic vibes! 🎉</p>
+    </footer>
+
+    <script>
+        // Function to show a section and animate timeline items
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden');
+                    if (section.id.includes('roadmap')) {
+                        const timelineItems = section.querySelectorAll('.timeline-item');
+                        timelineItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, index * 200); // Stagger effect
+                        });
+                    }
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigation Handling
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('href').substring(1);
+                showSection(sectionId);
+            });
+        });
+
+        // Course Card Click Handling
+        const courseCards = document.querySelectorAll('.course-card');
+        courseCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const course = card.dataset.course;
+                showSection(`${course}-roadmap`);
+            });
+        });
+
+        // Simple animation for page load
+        window.addEventListener('load', () => {
+            const homeTitle = document.querySelector('#home h2');
+            const homeText = document.querySelector('#home p');
+            const homeBtn = document.querySelector('#home .btn');
+            homeTitle.style.opacity = '0';
+            homeText.style.opacity = '0';
+            homeBtn.style.opacity = '0';
+            setTimeout(() => {
+                homeTitle.style.opacity = '1';
+                homeText.style.opacity = '1';
+            }, 100);
+            setTimeout(() => {
+                homeBtn.style.opacity = '1';
+            }, 300);
+        });
+
+        // Initial Load
+        showSection('home');
+    </script>
+</body>
+</html>
